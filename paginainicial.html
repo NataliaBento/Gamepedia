@@ -9,7 +9,9 @@
 <body>
     <header>
         <h1 class="logo">GAMEPEDIA</h1>
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+            &#9776;
+        </button>        
 
     <nav class="nav-menu" id="navMenu">
         <ul>
@@ -21,7 +23,10 @@
 
     <div class="search-bar">
         <input type="text" placeholder="Buscar jogos..." id="search">
-        <button type="submit"><i class="fas fa-search"></i></button>
+        <button type="submit" aria-label="Buscar jogo">
+            🔍
+        </button>
+        
     </div>
         <div class="user-profile">
             <img src="usuario.jpg" alt="Usuário">
@@ -34,7 +39,7 @@
             <h2>Games em Alta</h2>
             <div class="game-cards">
                 <div class="card">
-                    <img src="gtalogo.jpg" alt="foto de capa do jogo gta 5">
+                    <img src="gtalogo.webp" alt="foto de capa do jogo gta 5" >
                     <div class="rating">
                         <span class="star">&#9733;</span> 9.2/10
                     </div>
@@ -42,7 +47,8 @@
                 </div>
         
                 <div class="card">
-                    <img src="homemaranhalogo.webp" alt="foto de capa do jogo homem aranha">
+                    <img src="homemaranhalogo.webp" alt="foto de capa do jogo Homem-Aranha">
+
                     <div class="rating">
                         <span class="star">&#9733;</span> 8.5/10
                     </div>
@@ -70,5 +76,7 @@
             document.getElementById('navMenu').classList.toggle('active');
         });
     </script>
+
+
 </body>
 </html>

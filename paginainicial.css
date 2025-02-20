@@ -173,6 +173,8 @@ main {
     transform: scale(1.05);
 }
 
+
+
 .rating {
     background: rgba(0, 0, 0, 0.8);
     color: #f5c518; /* Cor dourada igual ao IMDb */
