@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePedia</title>
+    <link rel="stylesheet" href="paginainicial.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">GAMEPEDIA</h1>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#">Meus Jogos</a></li>
+            <li><a href="#">Minha Lista</a></li>
+            <li><a href="#">Linha do Tempo</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar jogos..." id="search">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+        <div class="user-profile">
+            <img src="usuario.jpg" alt="Usuário">
+            <span>Nome do Usuário</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="trending">
+            <h2>Games em Alta</h2>
+            <div class="game-cards">
+                <div class="card">
+                    <img src="gtalogo.jpg" alt="foto de capa do jogo gta 5">
+                    <div class="rating">
+                        <span class="star">&#9733;</span> 9.2/10
+                    </div>
+                    <p class="description">Uma aventura épica em um mundo aberto repleto de desafios e mistérios.</p>
+                </div>
+        
+                <div class="card">
+                    <img src="homemaranhalogo.webp" alt="foto de capa do jogo homem aranha">
+                    <div class="rating">
+                        <span class="star">&#9733;</span> 8.5/10
+                    </div>
+                    <p class="description">Lute contra hordas de inimigos e desbloqueie novas habilidades neste RPG emocionante.</p>
+                </div>
+        
+                <div class="card">
+                    <img src="thelasofuslogo.webp" alt="foto de capa do jogo the last of us">
+                    <div class="rating">
+                        <span class="star">&#9733;</span> 7.8/10
+                    </div>
+                    <p class="description">Entre no mundo cyberpunk e descubra uma história envolvente e cheia de reviravoltas.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>© 2025 GamePedia - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

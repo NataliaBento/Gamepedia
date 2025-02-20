@@ -1,0 +1,340 @@
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo */
+body {
+    background: #8449BF;
+    color: #ffffff;
+    text-align: center;
+}
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #8449BF;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00eaff;
+    text-transform: uppercase;
+}
+
+/* Menu de navegação */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu ul li {
+    display: inline;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #00eaff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Perfil do Usuário */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #00eaff;
+}
+
+.user-profile span {
+    font-size: 16px;
+}
+
+/* Estilizando o campo de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 5px;
+    width: 180px;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar button {
+    background: transparent;
+    border: none;
+    color: #00eaff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Ícone de pesquisa */
+.search-bar button i {
+    font-size: 18px;
+}
+
+main {
+    flex: 1;
+}
+
+/* Seção Games em Alta */
+.trending {
+    margin-top: 100px;
+    padding: 40px;
+}
+
+.trending h2 {
+    font-size: 24px;
+    color: #00eaff;
+    margin-bottom: 20px;
+}
+
+/* Cards de games */
+.game-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que os cards quebrem em telas menores */
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s;
+    max-width: 250px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.rating {
+    background: rgba(0, 0, 0, 0.8);
+    color: #f5c518; /* Cor dourada igual ao IMDb */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.star {
+    color: #f5c518;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.description {
+    font-size: 14px;
+    color: #ddd;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*  Responsividade */
+
+/* Ajuste para telas médias (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .user-profile span {
+        font-size: 14px;
+    }
+
+    .trending {
+        padding: 30px;
+    }
+
+    .game-cards {
+        gap: 15px;
+    }
+
+    .card {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Esconder o menu normal e exibir o botão hamburguer */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Exibir o botão hamburguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Mostrar o menu quando ativado */
+    .nav-menu.active {
+        display: block;
+    }
+}
+
+/* Responsividade: Ajustando a barra de pesquisa para telas menores */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}
+
+
+
+/* Ajuste para telas pequenas (celulares) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .user-profile {
+        margin-top: 10px;
+    }
+
+    .trending h2 {
+        font-size: 20px;
+    }
+
+    .game-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        max-width: 350px;
+    }
+}
+
+/* Ajuste para telas muito pequenas (celulares compactos) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    .trending {
+        padding: 20px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
