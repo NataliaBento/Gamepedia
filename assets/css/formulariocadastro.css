@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D91EFF; /* Cor de fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilo do card que contém o formulário */
+.card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px; /* Bordas mais arredondadas */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título do Formulário */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Estilo de título mais "app-like" */
+}
+
+/* Estilo dos labels */
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Estilo para inputs e select */
+input, select {
+    width: 100%; /* Garante que o input ocupe toda a largura disponível */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para o botão */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efeito de "zoom" no botão */
+}
+
+/* Estilo do grupo de campos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Garantir que o formulário se ajuste ao conteúdo */
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px; /* Um pouco de padding lateral para ficarem mais compactos */
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (celulares) */
+@media (max-width: 600px) {
+    /* Estilo do card */
+    .card {
+        max-width: 95%; /* O card ocupa quase toda a largura da tela */
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    /* Inputs e campos */
+    input, select {
+        padding: 16px;
+        border-radius: 15px;
+        font-size: 18px; /* Aumentar o tamanho da fonte para melhorar a usabilidade */
+        margin-bottom: 15px;
+        background-color: #f7f7f7;
+        border: 2px solid #ddd;
+    }
+
+    /* Botão */
+    button {
+        padding: 18px;
+        font-size: 20px;
+    }
+
+    /* Ajustes no layout */
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    /* Redefinir margem e padding dos elementos para ficarem alinhados corretamente */
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        max-width: 70%;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input, select, button {
+        font-size: 16px;
+    }
+}
+
+/* Para telas grandes (desktops) */
+@media (min-width: 1025px) {
+    .card {
+        max-width: 400px;
+    }
+}

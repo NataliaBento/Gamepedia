@@ -92,7 +92,7 @@ header {
     font-size: 16px;
 }
 
-/* Estilizando o campo de pesquisa */
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ header {
     padding: 5px;
 }
 
-/* Ícone de pesquisa */
+
 .search-bar button i {
     font-size: 18px;
 }
@@ -133,7 +133,7 @@ main {
     flex: 1;
 }
 
-/* Seção Games em Alta */
+
 .trending {
     margin-top: 100px;
     padding: 40px;
@@ -150,7 +150,7 @@ main {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Permite que os cards quebrem em telas menores */
+    flex-wrap: wrap; 
 }
 
 .card {
@@ -177,7 +177,7 @@ main {
 
 .rating {
     background: rgba(0, 0, 0, 0.8);
-    color: #f5c518; /* Cor dourada igual ao IMDb */
+    color: #f5c518; 
     font-size: 16px;
     font-weight: bold;
     padding: 5px 0;
@@ -207,9 +207,6 @@ footer {
     font-size: 14px;
 }
 
-/*  Responsividade */
-
-/* Ajuste para telas médias (tablets e notebooks pequenos) */
 @media (max-width: 1024px) {
     header {
         padding: 15px 30px;
@@ -245,7 +242,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Esconder o menu normal e exibir o botão hamburguer */
+    /* botão hamburguer */
     .nav-menu {
         display: none;
         position: absolute;
@@ -262,18 +259,17 @@ footer {
         gap: 15px;
     }
 
-    /* Exibir o botão hamburguer */
+    /* menu hamburguer */
     .menu-toggle {
         display: block;
     }
 
-    /* Mostrar o menu quando ativado */
     .nav-menu.active {
         display: block;
     }
 }
 
-/* Responsividade: Ajustando a barra de pesquisa para telas menores */
+
 @media (max-width: 768px) {
     .search-bar {
         width: 100%;
@@ -287,7 +283,7 @@ footer {
 
 
 
-/* Ajuste para telas pequenas (celulares) */
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -321,7 +317,7 @@ footer {
     }
 }
 
-/* Ajuste para telas muito pequenas (celulares compactos) */
+
 @media (max-width: 480px) {
     .logo {
         font-size: 18px;
