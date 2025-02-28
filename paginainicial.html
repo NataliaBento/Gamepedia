@@ -9,29 +9,36 @@
 <body>
     <header>
         <h1 class="logo">GAMEPEDIA</h1>
+
+        <!-- Campo de busca e usuário (Apresentados apenas em telas grandes) -->
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar jogos..." id="search">
+                <button type="submit" aria-label="Buscar jogo">🔍</button>
+            </div>
+            <div class="user-profile">
+                <span>Nome do Usuário</span>
+            </div>
+        </div>
+
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
             &#9776;
         </button>        
 
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="#">Meus Jogos</a></li>
-            <li><a href="#">Minha Lista</a></li>
-            <li><a href="#">Linha do Tempo</a></li>
-        </ul>
-    </nav>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Buscar jogos..." id="search">
-        <button type="submit" aria-label="Buscar jogo">
-            🔍
-        </button>
-        
-    </div>
-        <div class="user-profile">
-            <img src="usuario.jpg" alt="Usuário">
-            <span>Nome do Usuário</span>
-        </div>
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#">Meus Jogos</a></li>
+                <li><a href="#">Minha Lista</a></li>
+                <li><a href="#">Linha do Tempo</a></li>
+                <li id="search-bar" class="hidden">
+                    <input type="text" placeholder="Buscar jogos...">
+                    <button type="submit" aria-label="Buscar jogo">🔍</button>
+                </li>
+                <li id="mobileProfile" class="hidden">
+                    <span>Nome do Usuário</span>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -39,32 +46,46 @@
             <h2>Games em Alta</h2>
             <div class="game-cards">
                 <div class="card">
-                    <img src="/public/assets/imagens/gtalogo.webp" alt="foto de capa do jogo gta 5" >
-                    <div class="rating">
-                        <span class="star">&#9733;</span> 9.2/10
-                    </div>
-                    <p class="description">"Conheça o mundo de GTA 5, um jogo de ação em mundo aberto, 
-                        onde você explora Los Santos, cumpre missões e vive o caos do crime."</p>
+                    <img src="/public/assets/imagens/gtalogo.webp" alt="GTA 5">
+                    <div class="rating"><span class="star">&#9733;</span> 9.2/10</div>
+                    <p class="description">"Conheça o mundo de GTA 5, um jogo de ação em mundo aberto."</p>
                 </div>
-        
                 <div class="card">
-                    <img src="/public/assets/imagens/homemaranhalogo.webp" alt="foto de capa do jogo Homem-Aranha">
+                    <img src="/public/assets/imagens/homemaranhalogo.webp" alt="Homem-Aranha">
+                    <div class="rating"><span class="star">&#9733;</span> 8.5/10</div>
+                    <p class="description">"Seja o herói de Nova York como o Homem-Aranha."</p>
+                </div>
+                <div class="card">
+                    <img src="public/assets/imagens/thelasofuslogo.webp" alt="The Last of Us">
+                    <div class="rating"><span class="star">&#9733;</span> 7.8/10</div>
+                    <p class="description">"Viva a jornada emocionante de Joel e Ellie em um mundo pós-apocalíptico."</p>
+                </div>
+            </div>
+        </section>
 
-                    <div class="rating">
-                        <span class="star">&#9733;</span> 8.5/10
-                    </div>
-                    <p class="description">"Seja o herói de Nova York como o Homem-Aranha, 
-                        enfrentando vilões e salvando a cidade em uma experiência cheia de ação e emoção."</p>
-                </div>
+        <section class="trailer-section">
+            <h2>Confira os Trailers</h2>
+            <div class="trailer-container">
+                <!-- Trailer GTA 5 -->
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/QkkoHAzjnUs" 
+                    title="GTA 5 Trailer"
+                    frameborder="0" allowfullscreen>
+                </iframe>
         
-                <div class="card">
-                    <img src="public/assets/imagens/thelasofuslogo.webp" alt="foto de capa do jogo the last of us">
-                    <div class="rating">
-                        <span class="star">&#9733;</span> 7.8/10
-                    </div>
-                    <p class="description">"Viva a jornada emocionante de Joel e Ellie em um mundo pós-apocalíptico,
-                         enfrentando perigos e sobrevivendo em uma história de amor e perda."</p>
-                </div>
+                <!-- Trailer Homem-Aranha -->
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/q4GdJVvdxss" 
+                    title="Homem-Aranha Trailer"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+        
+                <!-- Trailer The Last of Us -->
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/WxjeV10H1F0" 
+                    title="The Last of Us Trailer"
+                    frameborder="0" allowfullscreen>
+                </iframe>
             </div>
         </section>
         
@@ -75,11 +96,25 @@
     </footer>
 
     <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('menuToggle').addEventListener('click', function () {
             document.getElementById('navMenu').classList.toggle('active');
         });
+
+        // Esconder e mostrar os elementos corretamente
+        function adjustMenu() {
+            if (window.innerWidth >= 768) {
+                document.querySelector('.header-right').style.display = "none"; 
+                document.getElementById('mobileSearch').classList.remove('hidden'); 
+                document.getElementById('mobileProfile').classList.remove('hidden'); 
+            } else {
+                document.querySelector('.header-right').style.display = "flex"; 
+                document.getElementById('mobileSearch').classList.add('hidden'); 
+                document.getElementById('mobileProfile').classList.add('hidden'); 
+            }
+        }
+
+        window.addEventListener("resize", adjustMenu);
+        window.addEventListener("load", adjustMenu);
     </script>
-
-
 </body>
 </html>

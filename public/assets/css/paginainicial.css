@@ -81,34 +81,29 @@ header {
     gap: 10px;
 }
 
-.user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #00eaff;
-}
-
 .user-profile span {
     font-size: 16px;
 }
 
-
+/* Estilização do campo de busca */
 .search-bar {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    padding: 5px;
-    margin-right: 20px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    width: 250px;
+    border: 1px solid #00eaff; /* Borda para maior destaque */
 }
 
 .search-bar input {
+    flex: 1;
     background: transparent;
     border: none;
     outline: none;
     color: white;
-    padding: 5px;
-    width: 180px;
+    padding: 8px;
+    font-size: 14px;
 }
 
 .search-bar input::placeholder {
@@ -116,18 +111,19 @@ header {
 }
 
 .search-bar button {
-    background: transparent;
+    background: none;
     border: none;
     color: #00eaff;
     cursor: pointer;
     font-size: 16px;
     padding: 5px;
+    transition: transform 0.2s ease-in-out;
 }
 
-
-.search-bar button i {
-    font-size: 18px;
+.search-bar button:hover {
+    transform: scale(1.1);
 }
+
 
 main {
     flex: 1;
@@ -199,6 +195,33 @@ main {
     line-height: 1.4;
 }
 
+/* Seção de trailers */
+.trailer-section {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+.trailer-section h2 {
+    font-size: 24px;
+    color: #00eaff;
+    margin-bottom: 20px;
+}
+
+/* Container dos vídeos */
+.trailer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Para os trailers se ajustarem em telas menores */
+}
+
+.trailer-container iframe {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 footer {
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
@@ -207,132 +230,151 @@ footer {
     font-size: 14px;
 }
 
-@media (max-width: 1024px) {
-    header {
-        padding: 15px 30px;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    nav ul {
-        gap: 15px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    .user-profile span {
-        font-size: 14px;
-    }
-
-    .trending {
-        padding: 30px;
-    }
-
-    .game-cards {
-        gap: 15px;
-    }
-
-    .card {
-        max-width: 250px;
-    }
-}
-
+/* Para telas menores que 768px (celulares e tablets pequenos) */
 @media (max-width: 768px) {
-    /* botão hamburguer */
+    /* Esconder o menu padrão */
     .nav-menu {
         display: none;
-        position: absolute;
-        top: 60px;
-        right: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 10px 0;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95); /* Fundo escuro para contraste */
+        padding-top: 60px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    /* Quando o menu for ativado, ele entra na tela */
+    .nav-menu.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    /* Itens dentro do menu (ajustando o layout) */
+    .nav-menu ul {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
         text-align: center;
     }
 
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 15px;
+    .nav-menu ul li {
+        width: 100%;
     }
 
-    /* menu hamburguer */
+    .nav-menu ul li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        font-size: 18px;
+        text-transform: uppercase;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .nav-menu ul li a:hover {
+        background: #00eaff;
+    }
+
+    /* Estilizando o perfil dentro do menu */
+    .menu-user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .menu-user-profile img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 2px solid #00eaff;
+        margin-bottom: 10px;
+    }
+
+    .menu-user-profile span {
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Campo de busca dentro do menu */
+    @media (max-width: 768px) {
+        .search-bar {
+            display: none; /* Esconder a busca fora do menu */
+        }
+    
+        /* Campo de busca dentro do menu */
+        .menu-search-bar {
+            display: flex;
+            width: 80%;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .menu-search-bar input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 10px;
+        }
+    
+        .menu-search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    
+        .menu-search-bar button {
+            background: transparent;
+            border: none;
+            color: #00eaff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    }
+    
+
+    /* Botão hambúrguer */
     .menu-toggle {
         display: block;
-    }
-
-    .nav-menu.active {
-        display: block;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .search-bar {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .search-bar input {
-        width: 100%;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
     }
 }
 
 
-
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding-top: 10px;
-    }
-
-    .user-profile {
-        margin-top: 10px;
-    }
-
-    .trending h2 {
-        font-size: 20px;
-    }
-
-    .game-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 80%;
-        max-width: 350px;
-    }
-}
-
-
+/* Para telas menores que 480px (celulares pequenos) */
 @media (max-width: 480px) {
     .logo {
         font-size: 18px;
     }
 
     .trending {
-        padding: 20px;
+        padding: 10px;
     }
 
     .card {
-        width: 90%;
-        max-width: 320px;
+        width: 85%;
+        max-width: 280px;
     }
 
     footer {
-        font-size: 12px;
+        font-size: 10px;
     }
 }

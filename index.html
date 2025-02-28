@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00eaff">
     <title>Login</title>
     <link rel="stylesheet" href="public/assets/css/login.css">
 </head>
@@ -22,5 +24,12 @@
             </p>
         </div>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker registrado com sucesso!"))
+                .catch(err => console.error("Erro ao registrar Service Worker:", err));
+        }
+    </script>    
 </body>
 </html>
