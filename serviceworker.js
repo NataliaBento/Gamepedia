@@ -1,14 +1,14 @@
 const CACHE_NAME = 'gamepedia-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/public/assets/css/paginainicial.css',
-  '/public/assets/js/app.js',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
-];
-
+    './', 
+    './index.html',
+    './public/assets/css/paginainicial.css',
+    './public/assets/js/app.js',
+    './manifest.json',
+    './icons/icon-192x192.png',
+    './icons/icon-512x512.png'
+  ];
+ 
 // Instalando o Service Worker e armazenando arquivos no cache
 self.addEventListener('install', event => {
   event.waitUntil(

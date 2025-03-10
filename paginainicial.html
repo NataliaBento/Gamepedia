@@ -9,18 +9,6 @@
 <body>
     <header>
         <h1 class="logo">GAMEPEDIA</h1>
-
-        <!-- Campo de busca e usuário (Apresentados apenas em telas grandes) -->
-        <div class="header-right">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar jogos..." id="search">
-                <button type="submit" aria-label="Buscar jogo">🔍</button>
-            </div>
-            <div class="user-profile">
-                <span>Nome do Usuário</span>
-            </div>
-        </div>
-
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
             &#9776;
         </button>        
@@ -32,10 +20,9 @@
                 <li><a href="#">Linha do Tempo</a></li>
                 <li id="search-bar" class="hidden">
                     <input type="text" placeholder="Buscar jogos...">
-                    <button type="submit" aria-label="Buscar jogo">🔍</button>
                 </li>
                 <li id="mobileProfile" class="hidden">
-                    <span>Nome do Usuário</span>
+                    <span id="data-user">Nome do Usuário</span>
                 </li>
             </ul>
         </nav>
@@ -95,26 +82,7 @@
         <p>©️ 2025 GamePedia - Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function () {
-            document.getElementById('navMenu').classList.toggle('active');
-        });
-
-        // Esconder e mostrar os elementos corretamente
-        function adjustMenu() {
-            if (window.innerWidth >= 768) {
-                document.querySelector('.header-right').style.display = "none"; 
-                document.getElementById('mobileSearch').classList.remove('hidden'); 
-                document.getElementById('mobileProfile').classList.remove('hidden'); 
-            } else {
-                document.querySelector('.header-right').style.display = "flex"; 
-                document.getElementById('mobileSearch').classList.add('hidden'); 
-                document.getElementById('mobileProfile').classList.add('hidden'); 
-            }
-        }
-
-        window.addEventListener("resize", adjustMenu);
-        window.addEventListener("load", adjustMenu);
-    </script>
+    <script src="public/assets/js/paginainicial.js"></script>
+    <script src="public/assets/js/cadastro.js"></script>
 </body>
 </html>

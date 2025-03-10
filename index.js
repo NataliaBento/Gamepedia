@@ -19,16 +19,16 @@ app.post('/cadastrar', function (req, res) {
 
     const dataFormatada = new Date(dataOriginal).toLocaleDateString('pt-br')
     // Envia os dados do usuário como JSON
-    res.json({
+    const data = res.json({
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha, 
         data_nascimento: dataFormatada,
         genero: req.body.genero
-    });
+    });    
 });
 
-// Inicialização do servidor
+
 app.listen(8087, function () {
     console.log('Servidor rodando na porta 8087 🚀');
 });
