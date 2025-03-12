@@ -2,8 +2,12 @@ const CACHE_NAME = 'gamepedia-cache-v1';
 const urlsToCache = [
     './', 
     './index.html',
+    './paginainicial.html',
+    './public/assets/css/login.css',
+    './index.js',
+    './public/assets/js/paginainicial.js',
     './public/assets/css/paginainicial.css',
-    './public/assets/js/app.js',
+    './public/assets/css/formulariocadastro.css',
     './manifest.json',
     './icons/icon-192x192.png',
     './icons/icon-512x512.png'
@@ -12,19 +16,24 @@ const urlsToCache = [
 // Instalando o Service Worker e armazenando arquivos no cache
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
+      caches.open(CACHE_NAME).then(cache => {
+          return cache.addAll(urlsToCache);
       })
   );
 });
 
-// Interceptando requisições para servir conteúdo do cache
+// Interceptando requisições para servir conteúdo do cache e salvar dinamicamente novas páginas
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
+      caches.match(event.request).then(response => {
+          return response || fetch(event.request)
+              .then(fetchResponse => {
+                  return caches.open(CACHE_NAME).then(cache => {
+                      cache.put(event.request, fetchResponse.clone());
+                      return fetchResponse;
+                  });
+              })
+              .catch(() => caches.match('./offline.html')); // Se não encontrar na rede, exibe a página offline
       })
   );
 });
@@ -33,14 +42,14 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+      caches.keys().then(cacheNames => {
+          return Promise.all(
+              cacheNames.map(cacheName => {
+                  if (!cacheWhitelist.includes(cacheName)) {
+                      return caches.delete(cacheName);
+                  }
+              })
+          );
+      })
   );
 });
