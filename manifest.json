@@ -27,5 +27,12 @@
       "games",
       "personalization"
     ],
+    "screenshots": [
+  {
+    "src": "/public/assets/screenshots/home.png",
+    "sizes": "1080x1920",
+    "type": "image/png"
+  }
+],
     "id": "com.natalia.gamepedia"
   }
