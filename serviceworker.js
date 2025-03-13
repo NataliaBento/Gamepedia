@@ -53,3 +53,29 @@ self.addEventListener('activate', event => {
       })
   );
 });
+
+// Escutando eventos de push
+self.addEventListener('push', event => {
+    const options = {
+        body: 'Você tem uma nova notificação no GamePedia!',
+        icon: './icons/icon-192x192.png',
+        badge: './icons/icon-192x192.png',
+        vibrate: [200, 100, 200], // Vibração no celular
+        actions: [
+            { action: 'abrir', title: 'Abrir GamePedia' }
+        ]
+    };
+
+    event.waitUntil(
+        self.registration.showNotification('GamePedia', options)
+    );
+});
+
+// Escutando evento de clique na notificação
+self.addEventListener('notificationclick', event => {
+    event.notification.close();
+    if (event.action === 'abrir') {
+        clients.openWindow('./paginainicial.html');
+    }
+});
+

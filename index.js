@@ -28,6 +28,15 @@ app.post('/cadastrar', function (req, res) {
     });    
 });
 
+if ('Notification' in window && 'serviceWorker' in navigator) {
+    Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+            console.log('Permissão de notificação concedida!');
+        }
+    });
+}
+
+
 
 app.listen(8087, function () {
     console.log('Servidor rodando na porta 8087 🚀');
